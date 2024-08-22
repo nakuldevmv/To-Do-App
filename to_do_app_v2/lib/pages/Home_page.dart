@@ -69,6 +69,26 @@ class _HomePageState extends State<HomePage> {
     db.updateDataBase();
   }
 
+  void editTask(int index) {
+    showDialog(
+      context: context,
+      builder: (context) {
+        return DialogeBox(
+          controller: TextEditingController(text: db.toDoTileItem[index][0]),
+          onSaved: () {
+            setState(() {
+              db.toDoTileItem[index][0] = _controller.text;
+            });
+            _controller.clear();
+            Navigator.of(context).pop();
+            db.updateDataBase();
+          },
+          onCanceled: () => Navigator.of(context).pop(),
+        );
+      },
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
