@@ -1,3 +1,4 @@
+//g
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -65,27 +66,6 @@ class _HomePageState extends State<HomePage> {
       db.toDoTileItem.removeAt(index);
     });
     db.updateDataBase();
-  }
-
-//Edit Task code
-  void editTask(int index) {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return DialogeBox(
-          controller: TextEditingController(text: db.toDoTileItem[index][0]),
-          onSaved: () {
-            setState(() {
-              db.toDoTileItem[index][0] = _controller.text;
-            });
-            _controller.clear();
-            Navigator.of(context).pop();
-            db.updateDataBase();
-          },
-          onCanceled: () => Navigator.of(context).pop(),
-        );
-      },
-    );
   }
 
   @override
