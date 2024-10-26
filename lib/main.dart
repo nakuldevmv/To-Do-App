@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'package:to_do_app_v2/webView/webViewContainer.dart';
 
 import 'pages/Home_page.dart';
 
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomePage(),
+      home: WebView(child: HomePage()),
       // theme: ThemeData(primarySwatch: Colors.blueGrey),
     );
   }
